@@ -1,2 +1,2 @@
-# Epiq.AppSupport.Chat.Component
-Chat component for all Epiq Apps
+# Epiq.AppSupportAppIntegration.Component
+ReactJS Component that connects to SignalR to get real time notificaitons from Epiq
