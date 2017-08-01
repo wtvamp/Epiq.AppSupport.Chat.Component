@@ -1,24 +1,37 @@
-﻿"use strict";
-
-var webpack = require("webpack");
+﻿var path = require('path');
+var webpack = require('webpack');
 module.exports = {
-    entry: "./src/app.jsx",
-    output: {
-        filename: "./wwwroot/bundle.js"
+    entry: {
+        bargauge: __dirname + '/app/bargauge/app.js'
+        //You can add additional entry points if you want
+        //grid: __dirname + '/app/grid/app.js'
     },
-    resolve: {
-        modules: ["src", "node_modules"]
+    output: {
+        path: __dirname + '/build',
+        filename: '[name].bundle.js'
     },
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
-                loader: "babel-loader",
-                query: { presets: ["es2015", "react"] }
+                test: /.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015', 'react']
+                }
             }
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({ "window.jQuery": "jquery" })
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: true,
+            sourcemap: false,
+            compress: { warnings: false }
+        })
     ]
 };
