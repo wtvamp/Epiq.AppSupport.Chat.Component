@@ -1,10 +1,11 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-import JqxWindow from '../../../jqwidgets-react/react_jqxwindow.js';
-import JqxTabs from '../../../jqwidgets-react/react_jqxtabs.js';
-import JqxCheckBox from '../../../jqwidgets-react/react_jqxcheckbox.js';
-import JqxButton from '../../../jqwidgets-react/react_jqxbuttons.js';
-class App extends React.Component {
+import JqxWindow from 'jqwidgets-framework';
+import JqxTabs from 'jqwidgets-framework';
+import JqxCheckBox from 'jqwidgets-framework';
+import JqxButton from 'jqwidgets-framework';
+
+class ChatComponent extends React.Component {
     componentDidMount() {
         this.refs.jqxWindow.focus();
         this.refs.showWindowButton.on('click', (event) => {
@@ -100,31 +101,32 @@ class App extends React.Component {
         return (
             <div>
                 <div>
-                    <JqxButton ref='showWindowButton' width={70} value='Open' />
-                    <JqxButton ref='hideWindowButton' width={70} value='Close' style={{ marginTop: 2 }} />
+                    <JqxButton ref='showWindowButton' width={70} value='Open'/>
+                    <JqxButton ref='hideWindowButton' width={70} value='Close' style={{ marginTop: 2 }}/>
                 </div>
                 <div style={{ marginTop: 10 }}>
-                    <JqxCheckBox ref='resizeCheckBox' width={185} checked={true} value='Resizable' />
-                    <JqxCheckBox ref='dragCheckBox' width={185} checked={true} value='Enable drag' style={{ marginTop: 2 }} />
+                    <JqxCheckBox ref='resizeCheckBox' width={185} checked={true} value='Resizable'/>
+                    <JqxCheckBox ref='dragCheckBox' width={185} checked={true} value='Enable drag' style={{
+                        marginTop: 2
+                    }}/>
                 </div>
                 <div style={{ width: '100%', height: 650, marginTop: 50 }}>
                     <JqxWindow ref='jqxWindow'
                                width={500} height={300} position={{ x: 60, y: 175 }}
                                minWidth={200} minHeight={200} maxWidth={700}
-                               maxHeight={400} showCollapseButton={true}
-                    >
+                               maxHeight={400} showCollapseButton={true}>
                         <div >
                             <span>
-                                <img src="../../../images/movie.png" alt="" style={{ marginRight: 15 }} />Movies
+                                <img src="../../../images/movie.png" alt="" style={{ marginRight: 15 }}/>Movies
                             </span>
                         </div>
                         <div style={{ overflow: 'hidden' }}>
-                            <JqxTabs template={tabHTML} width={'100%'} height={'100%'} />
+                            <JqxTabs template={tabHTML} width={'100%'} height={'100%'}/>
                         </div>
                     </JqxWindow>
                 </div>
             </div>
-        )
+        );
     }
 }
 ReactDOM.render(<App />, document.getElementById('app'));
