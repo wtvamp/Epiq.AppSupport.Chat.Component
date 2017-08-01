@@ -28596,37 +28596,34 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var HelloWorld = function (_React$Component) {
-    _inherits(HelloWorld, _React$Component);
+var SupportChatComponent = function (_React$Component) {
+    _inherits(SupportChatComponent, _React$Component);
 
-    function HelloWorld(props) {
-        _classCallCheck(this, HelloWorld);
+    function SupportChatComponent(props) {
+        _classCallCheck(this, SupportChatComponent);
 
-        var _this = _possibleConstructorReturn(this, (HelloWorld.__proto__ || Object.getPrototypeOf(HelloWorld)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (SupportChatComponent.__proto__ || Object.getPrototypeOf(SupportChatComponent)).call(this, props));
 
-        _dotnetify2.default.react.connect("SayHiVM", _this);
+        _dotnetify2.default.react.connect("SupportChatComponentVM", _this);
         _this.state = { Greetings: "", ServerTime: "" };
         return _this;
     }
 
-    _createClass(HelloWorld, [{
+    _createClass(SupportChatComponent, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
                 null,
-                this.state.Greetings,
-                _react2.default.createElement('br', null),
-                'Server time is: ',
-                this.state.ServerTime
+                'This is a test of the chat component'
             );
         }
     }]);
 
-    return HelloWorld;
+    return SupportChatComponent;
 }(_react2.default.Component);
 
-exports.default = HelloWorld;
+exports.default = SupportChatComponent;
 
 /***/ }),
 /* 160 */
@@ -55842,9 +55839,9 @@ var _reactDom = __webpack_require__(158);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _HelloWorld = __webpack_require__(159);
+var _ChatComponent = __webpack_require__(159);
 
-var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
+var _ChatComponent2 = _interopRequireDefault(_ChatComponent);
 
 var _jquery = __webpack_require__(60);
 
@@ -55853,8 +55850,10 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _jquery2.default.connection.hub.url = "http://localhost:53035/signalr";
+//import HelloWorld from 'epiq-appsupport-button-component'
 
-_reactDom2.default.render(_react2.default.createElement(_HelloWorld2.default, null), document.getElementById('Content'));
+
+_reactDom2.default.render(_react2.default.createElement(_ChatComponent2.default, null), document.getElementById('Content'));
 
 /***/ })
 /******/ ]);

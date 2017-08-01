@@ -1,11 +1,12 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from 'HelloWorld.jsx';
+import ChatComponent from 'ChatComponent.jsx';
+//import HelloWorld from 'epiq-appsupport-button-component'
 import $ from 'jquery';
 
 $.connection.hub.url = "http://localhost:53035/signalr";
 
 ReactDOM.render(
-    <HelloWorld />,
+    <ChatComponent />,
     document.getElementById('Content')
 );

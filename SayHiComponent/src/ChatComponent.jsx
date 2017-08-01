@@ -1,22 +1,21 @@
 ﻿import React from 'react';
 import dotnetify from 'dotnetify';
 
-class HelloWorld extends React.Component {
+class SupportChatComponent extends React.Component {
     constructor(props) {
         super(props);
 
-        dotnetify.react.connect("SayHiVM", this);
+        dotnetify.react.connect("SupportChatComponentVM", this);
         this.state = { Greetings: "", ServerTime: "" };
     }
 
     render() {
         return (
             <div>
-                {this.state.Greetings}<br />
-                Server time is: {this.state.ServerTime}
+                This is a test of the chat component
             </div>
         );
     }
 }
 
-export default HelloWorld;
+export default SupportChatComponent;

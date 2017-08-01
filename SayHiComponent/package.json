@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "epiq-appsupport-chat",
+  "name": "epiq-appsupport-chat-component",
   "private": true,
   "devDependencies": {
     "babel-core": "^6.23.1",
