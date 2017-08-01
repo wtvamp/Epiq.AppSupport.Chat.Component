@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import dotnetify from 'dotnetify';
+import HelloWorld from 'epiq-appsupport-button-component';
 
 class SupportChatComponent extends React.Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class SupportChatComponent extends React.Component {
         return (
             <div>
                 This is a test of the chat component
+                <HelloWorld />
             </div>
         );
     }
