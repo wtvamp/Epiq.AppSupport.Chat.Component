@@ -4,7 +4,9 @@ import ChatBubble from 'react-chat-bubble';
 
 class SupportChatComponent extends Component {
     render() {
-        <ChatBubble />
+        return (
+            <ChatBubble messages={this.state.messages}/>
+        );
     }
 }
 export default SupportChatComponent;
