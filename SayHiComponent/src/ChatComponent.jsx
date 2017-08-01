@@ -2,7 +2,7 @@
 import dotnetify from 'dotnetify';
 import ChatBubble from 'react-chat-bubble';
 
-class SupportChatComponent extends Component {
+class SupportChatComponent extends React.Component {
     render() {
         return (
             <ChatBubble messages={this.state.messages}/>
