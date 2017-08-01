@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "sayhicomponent",
+  "name": "epiq-appsupport-chat",
   "private": true,
   "devDependencies": {
     "babel-core": "^6.23.1",
