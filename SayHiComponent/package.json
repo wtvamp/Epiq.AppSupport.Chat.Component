@@ -11,6 +11,6 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "webpack": "^2.2.1",
-    "epiq-appsupport-button-component": "1.0.0"  
+    "epiq-appsupport-button-component": "1.0.7"  
   }
 }
