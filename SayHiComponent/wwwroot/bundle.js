@@ -28603,10 +28603,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SupportChatComponent = function (_React$Component) {
     _inherits(SupportChatComponent, _React$Component);
 
-    function SupportChatComponent() {
+    function SupportChatComponent(props) {
         _classCallCheck(this, SupportChatComponent);
 
-        return _possibleConstructorReturn(this, (SupportChatComponent.__proto__ || Object.getPrototypeOf(SupportChatComponent)).apply(this, arguments));
+        //dotnetify.react.connect("SupportChatComponentVM", this);
+
+        var _this = _possibleConstructorReturn(this, (SupportChatComponent.__proto__ || Object.getPrototypeOf(SupportChatComponent)).call(this, props));
+
+        _this.state = {
+            messages: [{
+                "type": 0,
+                "image": "http://lorempixel.com/50/50/cats/",
+                "text": "Hello! Good Morning!"
+            }, {
+                "type": 1,
+                "image": "http://lorempixel.com/50/50/animals/",
+                "text": "Hello! Good Afternoon!"
+            }]
+        };
+        return _this;
     }
 
     _createClass(SupportChatComponent, [{
