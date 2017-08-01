@@ -7,6 +7,6 @@ import $ from 'jquery';
 $.connection.hub.url = "http://localhost:53035/signalr";
 
 ReactDOM.render(
-    <ChatComponent />,
+    <SupportChatComponent />,
     document.getElementById('Content')
 );

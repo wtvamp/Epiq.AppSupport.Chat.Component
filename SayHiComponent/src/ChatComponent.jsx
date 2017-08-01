@@ -1,11 +1,12 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
+import jqwidgets from 'jqwidgets-framework';
 import JqxWindow from 'jqwidgets-framework';
 import JqxTabs from 'jqwidgets-framework';
 import JqxCheckBox from 'jqwidgets-framework';
 import JqxButton from 'jqwidgets-framework';
 
-class ChatComponent extends React.Component {
+class SupportChatComponent extends React.Component {
     componentDidMount() {
         this.refs.jqxWindow.focus();
         this.refs.showWindowButton.on('click', (event) => {
@@ -129,4 +130,4 @@ class ChatComponent extends React.Component {
         );
     }
 }
-ReactDOM.render(<App />, document.getElementById('app'));
+export default SupportChatComponent;
