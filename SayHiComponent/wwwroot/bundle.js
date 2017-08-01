@@ -30173,20 +30173,12 @@ var SupportChatComponent = function (_React$Component) {
     function SupportChatComponent(props) {
         _classCallCheck(this, SupportChatComponent);
 
-        //dotnetify.react.connect("SupportChatComponentVM", this);
-
         var _this = _possibleConstructorReturn(this, (SupportChatComponent.__proto__ || Object.getPrototypeOf(SupportChatComponent)).call(this, props));
 
+        _dotnetify2.default.react.connect("SupportChatComponentVM", _this);
+
         _this.state = {
-            messages: [{
-                "type": 0,
-                "image": "http://lorempixel.com/50/50/cats/",
-                "text": "Hello! Good Morning!"
-            }, {
-                "type": 1,
-                "image": "http://lorempixel.com/50/50/animals/",
-                "text": "Hello! Good Afternoon!"
-            }]
+            messages: []
         };
 
         return _this;
@@ -64383,10 +64375,11 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//$.connection.hub.url = "http://localhost:53035/signalr";
+_jquery2.default.connection.hub.url = "http://localhost:53035/signalr";
+//import HelloWorld from 'epiq-appsupport-button-component'
+
 
 _reactDom2.default.render(_react2.default.createElement(_ChatComponent2.default, null), document.getElementById('Content'));
-//import HelloWorld from 'epiq-appsupport-button-component'
 
 /***/ }),
 /* 363 */
