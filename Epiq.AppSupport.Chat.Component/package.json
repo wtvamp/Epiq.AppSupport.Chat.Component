@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/SupportChatComponent.js",
   "scripts": {
     "build": "babel src/SupportChatComponent.jsx -o dist/SupportChatComponent.js"
@@ -13,7 +13,9 @@
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "react-chat-bubble": "0.8.6",
-    "reactstrap": "4.8.0"
+    "reactstrap": "4.8.0",
+    "react-addons-css-transition-group": "15.6.0",
+    "react-addons-transition-group": "15.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -24,8 +26,6 @@
     "css-loader": "0.8.0",
     "dotnetify": "2.0.4-beta",
     "react": "^15.4.2",
-    "react-addons-css-transition-group": "15.6.0",
-    "react-addons-transition-group": "15.6.0",
     "react-dom": "^15.4.2",
     "style-loader": "0.18.2",
     "webpack": "^2.2.1"
