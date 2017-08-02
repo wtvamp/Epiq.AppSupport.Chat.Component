@@ -9,19 +9,26 @@ class SupportChatComponent extends React.Component {
     constructor(props) {
 
         super(props);
-        //dotnetify.react.connect("SupportChatComponentVM", this);
+        // Connect this component to the back-end view model.
+        this.vm = dotnetify.react.connect("SupportChatComponentVM", this);
+
+        // Set up function to dispatch state to the back-end with optimistic update.
+        this.dispatch = state => this.vm.$dispatch(state);
+        this.dispatchState = state => {
+            this.setState(state);
+            this.vm.$dispatch(state);
+        };
+
+        // The VM's initial state was generated server-side and included with the JSX.
+        //return window.vmStates.SupportChatComponentVM;
 
         this.state = {
-            messages: [{
-                "type": 0,
-                "image": "http://lorempixel.com/50/50/cats/",
-                "text": "Hello! Good Morning!"
-            }, {
-                "type": 1,
-                "image": "http://lorempixel.com/50/50/animals/",
-                "text": "Hello! Good Afternoon!"
-            }]
+            messages: []
         };
+    }
+
+    componentWillUnmount() {
+        this.vm.$destroy();
     }
 
     render() {
@@ -61,24 +68,7 @@ class SupportChatComponent extends React.Component {
                             null,
                             React.createElement(ChatBubble, { messages: this.state.messages })
                         ),
-                        React.createElement(
-                            'footer',
-                            null,
-                            React.createElement(
-                                InputGroup,
-                                null,
-                                React.createElement(Input, { placeholder: 'Send a message' }),
-                                React.createElement(
-                                    InputGroupButton,
-                                    null,
-                                    React.createElement(
-                                        Button,
-                                        { color: 'secondary' },
-                                        'Send'
-                                    )
-                                )
-                            )
-                        )
+                        React.createElement(SendChatMessageBox, { onAdd: value => this.dispatchState({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" } }) })
                     )
                 )
             )
@@ -86,3 +76,37 @@ class SupportChatComponent extends React.Component {
     }
 }
 export default SupportChatComponent;
+
+var SendChatMessageBox = React.createClass({
+    displayName: 'SendChatMessageBox',
+
+    getInitialState() {
+        return { message: "" };
+    },
+    render() {
+        const handleAdd = () => {
+            if (this.state.message) {
+                this.props.onAdd(this.state.message);
+                this.setState({ message: "" });
+            }
+        };
+        return React.createElement(
+            'footer',
+            null,
+            React.createElement(
+                InputGroup,
+                null,
+                React.createElement(Input, { placeholder: 'Send a message', id: 'SendSupportMessage', value: this.state.message, onChange: event => this.setState({ message: event.target.value }) }),
+                React.createElement(
+                    InputGroupButton,
+                    null,
+                    React.createElement(
+                        Button,
+                        { color: 'secondary', onClick: handleAdd },
+                        'Send'
+                    )
+                )
+            )
+        );
+    }
+});

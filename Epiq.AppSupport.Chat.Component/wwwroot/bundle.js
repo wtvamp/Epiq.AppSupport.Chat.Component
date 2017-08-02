@@ -64408,9 +64408,9 @@ var _reactDom = __webpack_require__(63);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _ChatComponent = __webpack_require__(166);
+var _SupportChatComponent = __webpack_require__(166);
 
-var _ChatComponent2 = _interopRequireDefault(_ChatComponent);
+var _SupportChatComponent2 = _interopRequireDefault(_SupportChatComponent);
 
 var _jquery = __webpack_require__(62);
 
@@ -64418,10 +64418,10 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_jquery2.default.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
-//$.connection.hub.url = "http://localhost:53035/signalr";
+//$.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
+_jquery2.default.connection.hub.url = "http://localhost:53035/signalr";
 
-_reactDom2.default.render(_react2.default.createElement(_ChatComponent2.default, null), document.getElementById('Content'));
+_reactDom2.default.render(_react2.default.createElement(_SupportChatComponent2.default, null), document.getElementById('Content'));
 
 /***/ }),
 /* 363 */

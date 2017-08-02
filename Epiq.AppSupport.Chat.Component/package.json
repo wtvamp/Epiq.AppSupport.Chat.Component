@@ -1,14 +1,15 @@
 {
-  "version": "1.0.0",
-  "name": "epiq-appsupport-chat-component",
+  "version": "1.0.1",
+  "main": "dist/SupportChatComponent.js",
   "scripts": {
-    "build": "babel src/ChatComponent.jsx -o dist/ChatComponent.js"
+    "build": "babel src/SupportChatComponent.jsx -o dist/SupportChatComponent.js"
   },
   "babel": {
     "presets": [
       "react"
     ]
   },
+  "name": "epiq-appsupport-chat-component",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.23.1",
@@ -27,5 +28,8 @@
     "reactstrap": "4.8.0",
     "style-loader": "0.18.2",
     "webpack": "^2.2.1"
-  }
+  },
+  "files": [
+    "dist/"
+  ]
 }
