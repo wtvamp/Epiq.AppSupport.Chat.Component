@@ -30183,7 +30183,6 @@ var SupportChatComponent = function (_React$Component) {
             return _this.vm.$dispatch(state);
         };
         _this.dispatchState = function (state) {
-            debugger;
             _this.setState(state);
             _this.vm.$dispatch(state);
         };
@@ -30199,6 +30198,11 @@ var SupportChatComponent = function (_React$Component) {
     }
 
     _createClass(SupportChatComponent, [{
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.vm.$destroy();
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -30240,7 +30244,7 @@ var SupportChatComponent = function (_React$Component) {
                                 _react2.default.createElement(_reactChatBubble2.default, { messages: this.state.messages })
                             ),
                             _react2.default.createElement(SendChatMessageBox, { onAdd: function onAdd(value) {
-                                    return _this2.dispatch({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" } });
+                                    return _this2.dispatchState({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" } });
                                 } })
                         )
                     )

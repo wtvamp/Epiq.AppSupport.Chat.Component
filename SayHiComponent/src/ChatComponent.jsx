@@ -18,7 +18,6 @@ class SupportChatComponent extends React.Component {
         // Set up function to dispatch state to the back-end with optimistic update.
         this.dispatch = state => this.vm.$dispatch(state);
         this.dispatchState = state => {
-            debugger;
             this.setState(state);
             this.vm.$dispatch(state);
         }
@@ -30,6 +29,10 @@ class SupportChatComponent extends React.Component {
             messages: []
         };
 
+    }
+
+    componentWillUnmount() {
+        this.vm.$destroy();
     }
 
     render() {
@@ -46,7 +49,7 @@ class SupportChatComponent extends React.Component {
                             <CardText>
                                 <ChatBubble messages={this.state.messages} />
                             </CardText>
-                            <SendChatMessageBox onAdd={value => this.dispatch({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" }})} />
+                            <SendChatMessageBox onAdd={value => this.dispatchState({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" }})} />
                         </CardBlock>
                     </Card>
                 </Col>
