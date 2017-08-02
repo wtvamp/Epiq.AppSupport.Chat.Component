@@ -64423,8 +64423,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//$.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
-_jquery2.default.connection.hub.url = "http://localhost:53035/signalr";
+_jquery2.default.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
+//$.connection.hub.url = "http://localhost:53035/signalr";
 
 _reactDom2.default.render(_react2.default.createElement(_SupportChatComponent2.default, null), document.getElementById('Content'));
 
