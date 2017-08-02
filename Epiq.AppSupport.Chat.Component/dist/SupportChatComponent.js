@@ -76,7 +76,7 @@ class SupportChatComponent extends React.Component {
     }
 }
 
-SuperChatComponent.defaultProps = {
+SupportChatComponent.defaultProps = {
     type: 0,
     image: "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg"
 };

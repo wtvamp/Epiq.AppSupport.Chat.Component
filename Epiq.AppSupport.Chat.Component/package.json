@@ -1,5 +1,5 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/SupportChatComponent.js",
   "scripts": {
     "build": "babel src/SupportChatComponent.jsx -o dist/SupportChatComponent.js"
