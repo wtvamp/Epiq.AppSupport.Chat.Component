@@ -30173,9 +30173,23 @@ var SupportChatComponent = function (_React$Component) {
     function SupportChatComponent(props) {
         _classCallCheck(this, SupportChatComponent);
 
+        // Connect this component to the back-end view model.
         var _this = _possibleConstructorReturn(this, (SupportChatComponent.__proto__ || Object.getPrototypeOf(SupportChatComponent)).call(this, props));
 
-        _dotnetify2.default.react.connect("SupportChatComponentVM", _this);
+        _this.vm = _dotnetify2.default.react.connect("SupportChatComponentVM", _this);
+
+        // Set up function to dispatch state to the back-end with optimistic update.
+        _this.dispatch = function (state) {
+            return _this.vm.$dispatch(state);
+        };
+        _this.dispatchState = function (state) {
+            debugger;
+            _this.setState(state);
+            _this.vm.$dispatch(state);
+        };
+
+        // The VM's initial state was generated server-side and included with the JSX.
+        //return window.vmStates.SupportChatComponentVM;
 
         _this.state = {
             messages: []
@@ -30187,6 +30201,8 @@ var SupportChatComponent = function (_React$Component) {
     _createClass(SupportChatComponent, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 _reactstrap.Row,
                 null,
@@ -30223,24 +30239,9 @@ var SupportChatComponent = function (_React$Component) {
                                 null,
                                 _react2.default.createElement(_reactChatBubble2.default, { messages: this.state.messages })
                             ),
-                            _react2.default.createElement(
-                                'footer',
-                                null,
-                                _react2.default.createElement(
-                                    _reactstrap.InputGroup,
-                                    null,
-                                    _react2.default.createElement(_reactstrap.Input, { placeholder: 'Send a message' }),
-                                    _react2.default.createElement(
-                                        _reactstrap.InputGroupButton,
-                                        null,
-                                        _react2.default.createElement(
-                                            _reactstrap.Button,
-                                            { color: 'secondary' },
-                                            'Send'
-                                        )
-                                    )
-                                )
-                            )
+                            _react2.default.createElement(SendChatMessageBox, { onAdd: function onAdd(value) {
+                                    return _this2.dispatch({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" } });
+                                } })
                         )
                     )
                 )
@@ -30252,6 +30253,44 @@ var SupportChatComponent = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SupportChatComponent;
+
+
+var SendChatMessageBox = _react2.default.createClass({
+    displayName: 'SendChatMessageBox',
+    getInitialState: function getInitialState() {
+        return { message: "" };
+    },
+    render: function render() {
+        var _this3 = this;
+
+        var handleAdd = function handleAdd() {
+            if (_this3.state.message) {
+                _this3.props.onAdd(_this3.state.message);
+                _this3.setState({ message: "" });
+            }
+        };
+        return _react2.default.createElement(
+            'footer',
+            null,
+            _react2.default.createElement(
+                _reactstrap.InputGroup,
+                null,
+                _react2.default.createElement(_reactstrap.Input, { placeholder: 'Send a message', id: 'SendSupportMessage', value: this.state.message, onChange: function onChange(event) {
+                        return _this3.setState({ message: event.target.value });
+                    } }),
+                _react2.default.createElement(
+                    _reactstrap.InputGroupButton,
+                    null,
+                    _react2.default.createElement(
+                        _reactstrap.Button,
+                        { color: 'secondary', onClick: handleAdd },
+                        'Send'
+                    )
+                )
+            )
+        );
+    }
+});
 
 /***/ }),
 /* 167 */
@@ -64375,6 +64414,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//$.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
 _jquery2.default.connection.hub.url = "http://localhost:53035/signalr";
 //import HelloWorld from 'epiq-appsupport-button-component'
 

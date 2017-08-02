@@ -12,14 +12,25 @@ class SupportChatComponent extends React.Component {
     constructor(props) {
 
         super(props);
-        dotnetify.react.connect("SupportChatComponentVM", this);
+        // Connect this component to the back-end view model.
+        this.vm = dotnetify.react.connect("SupportChatComponentVM", this);
+
+        // Set up function to dispatch state to the back-end with optimistic update.
+        this.dispatch = state => this.vm.$dispatch(state);
+        this.dispatchState = state => {
+            debugger;
+            this.setState(state);
+            this.vm.$dispatch(state);
+        }
+
+        // The VM's initial state was generated server-side and included with the JSX.
+        //return window.vmStates.SupportChatComponentVM;
 
         this.state = {
             messages: []
         };
 
     }
-
 
     render() {
         return (
@@ -35,12 +46,7 @@ class SupportChatComponent extends React.Component {
                             <CardText>
                                 <ChatBubble messages={this.state.messages} />
                             </CardText>
-                            <footer>
-                                <InputGroup>
-                                    <Input placeholder="Send a message" />
-                                    <InputGroupButton><Button color="secondary">Send</Button></InputGroupButton>
-                                </InputGroup>
-                            </footer>
+                            <SendChatMessageBox onAdd={value => this.dispatch({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" }})} />
                         </CardBlock>
                     </Card>
                 </Col>
@@ -50,3 +56,25 @@ class SupportChatComponent extends React.Component {
     }
 }
 export default SupportChatComponent;
+
+var SendChatMessageBox = React.createClass({
+    getInitialState() {
+        return { message: "" }
+    },
+    render() {
+        const handleAdd = () => {
+            if (this.state.message) {
+                this.props.onAdd(this.state.message);
+                this.setState({ message: "" });
+            }
+        };
+        return (
+            <footer>
+                <InputGroup>
+                    <Input placeholder="Send a message" id="SendSupportMessage" value={this.state.message} onChange={event => this.setState({ message: event.target.value })} />
+                    <InputGroupButton><Button color="secondary" onClick={handleAdd}>Send</Button></InputGroupButton>
+                </InputGroup>
+            </footer>
+        );
+    }
+});
