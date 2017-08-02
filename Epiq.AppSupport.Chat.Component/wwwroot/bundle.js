@@ -30244,7 +30244,7 @@ var SupportChatComponent = function (_React$Component) {
                                 _react2.default.createElement(_reactChatBubble2.default, { messages: this.state.messages })
                             ),
                             _react2.default.createElement(SendChatMessageBox, { onAdd: function onAdd(value) {
-                                    return _this2.dispatchState({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" } });
+                                    return _this2.dispatchState({ Add: { type: _this2.props.type, text: value, image: _this2.props.image } });
                                 } })
                         )
                     )
@@ -30255,6 +30255,11 @@ var SupportChatComponent = function (_React$Component) {
 
     return SupportChatComponent;
 }(_react2.default.Component);
+
+SupportChatComponent.defaultProps = {
+    type: 0,
+    image: "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg"
+};
 
 exports.default = SupportChatComponent;
 
@@ -64418,8 +64423,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//$.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
-_jquery2.default.connection.hub.url = "http://localhost:53035/signalr";
+_jquery2.default.connection.hub.url = "http://sayhivm20170801035834.azurewebsites.net/signalr";
+//$.connection.hub.url = "http://localhost:53035/signalr";
 
 _reactDom2.default.render(_react2.default.createElement(_SupportChatComponent2.default, null), document.getElementById('Content'));
 

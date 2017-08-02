@@ -68,13 +68,19 @@ class SupportChatComponent extends React.Component {
                             null,
                             React.createElement(ChatBubble, { messages: this.state.messages })
                         ),
-                        React.createElement(SendChatMessageBox, { onAdd: value => this.dispatchState({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" } }) })
+                        React.createElement(SendChatMessageBox, { onAdd: value => this.dispatchState({ Add: { type: this.props.type, text: value, image: this.props.image } }) })
                     )
                 )
             )
         );
     }
 }
+
+SuperChatComponent.defaultProps = {
+    type: 0,
+    image: "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg"
+};
+
 export default SupportChatComponent;
 
 var SendChatMessageBox = React.createClass({

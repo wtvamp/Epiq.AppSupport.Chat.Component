@@ -8,7 +8,6 @@ import { Row, Col,
 
 class SupportChatComponent extends React.Component {
 
-
     constructor(props) {
 
         super(props);
@@ -49,7 +48,7 @@ class SupportChatComponent extends React.Component {
                             <CardText>
                                 <ChatBubble messages={this.state.messages} />
                             </CardText>
-                            <SendChatMessageBox onAdd={value => this.dispatchState({ Add: { type: 0, text: value, image: "http://lorempixel.com/50/50/cats/" }})} />
+                            <SendChatMessageBox onAdd={value => this.dispatchState({ Add: { type: this.props.type, text: value, image: this.props.image }})} />
                         </CardBlock>
                     </Card>
                 </Col>
@@ -58,6 +57,12 @@ class SupportChatComponent extends React.Component {
         );
     }
 }
+
+SupportChatComponent.defaultProps = {
+    type: 0,
+    image: "https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg"
+}
+
 export default SupportChatComponent;
 
 var SendChatMessageBox = React.createClass({
