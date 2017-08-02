@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 
-namespace SayHiComponent
+namespace Epiq.AppSupport.Chat.Component
 {
     public class Startup
     {
