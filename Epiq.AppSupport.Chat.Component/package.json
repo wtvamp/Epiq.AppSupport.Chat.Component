@@ -1,5 +1,5 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.0",
   "main": "dist/SupportChatComponent.js",
   "scripts": {
     "build": "babel src/SupportChatComponent.jsx -o dist/SupportChatComponent.js"
@@ -9,7 +9,7 @@
       "react"
     ]
   },
-  "name": "epiq-appsupport-chatwindow-component",
+  "name": "epiq-react-components-chatwindow",
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "dotnetify": "^2.0.4-beta",
