@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SayHiComponent": {
+    "Epiq.React.Chat.Component": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

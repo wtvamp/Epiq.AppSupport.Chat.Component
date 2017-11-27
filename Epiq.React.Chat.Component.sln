@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epiq.AppSupport.Chat.Component", "Epiq.AppSupport.Chat.Component\Epiq.AppSupport.Chat.Component.csproj", "{D9DA0B31-854A-4899-9813-CA323DDD5C65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epiq.React.Chat.Component", "Epiq.React.Chat.Component\Epiq.React.Chat.Component.csproj", "{D9DA0B31-854A-4899-9813-CA323DDD5C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D86878BB-0AB4-4662-8578-01B242BD5A4F}
 	EndGlobalSection
 EndGlobal

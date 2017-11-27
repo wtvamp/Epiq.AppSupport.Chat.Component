@@ -6,6 +6,8 @@
 
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+    <RootNamespace>Epiq.React.Chat.Component</RootNamespace>
+    <AssemblyName>Epiq.React.Chat.Component</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
